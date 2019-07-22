@@ -1,0 +1,11 @@
+{
+    "vcenter_server":"nl-utc-p-mgt-01.nl.mdb-lab.com",
+    "username":"sa_packer@nl.mdb-lab.com",
+    "password":"P@ssw0rd.1",
+    "datastore":"vsanDatastore",
+    "datastore_iso":"ISO",
+    "cluster": "Management",
+    "network": "VLAN70",
+    "winrm_username": "Administrator",
+    "winrm_password": "Zw44rdv15!"
+}
