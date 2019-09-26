@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 
 $webserver = "intranet.mdb-lab.com"
 $url = "http://" + $webserver
-$installer = "VMware User Environment Manager 9.8 x64.msi"
+$installer = "VMware Dynamic Environment Manager 9.9 x64.msi"
 $listConfig = "/i ""C:\$installer"" /qn REBOOT=ReallySuppress ADDLOCAL=FlexEngine"
 
 # Verify connectivity
