@@ -57,7 +57,8 @@
         "scripts": [
           "{{template_dir}}/setup/certs.ps1",
           "{{template_dir}}/setup/appvolumes.ps1",
-          "{{template_dir}}/setup/dem.ps1"
+          "{{template_dir}}/setup/dem.ps1",
+          "{{template_dir}}/setup/agent.ps1"
         ]
       }
     ]
