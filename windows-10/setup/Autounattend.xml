@@ -76,25 +76,9 @@
                 <!-- Privacy settings -->
                 <ProtectYourPC>3</ProtectYourPC>
             </OOBE>
-
             
             <TimeZone>W. Europe Standard Time</TimeZone>
             
-<!--
-            <UserAccounts>
-                <LocalAccounts>
-                    <LocalAccount wcm:action="add">
-                        <Name>sa_packer</Name>
-                        <Password>
-                            <Value>P@ssw0rd.1</Value>
-                            <PlainText>true</PlainText>
-                        </Password>
-                        <Group>Administrators</Group>
-                    </LocalAccount>
-                </LocalAccounts>
-            </UserAccounts>
--->
-
             <UserAccounts>
                  <AdministratorPassword>
                      <Value>Zw44rdv15!</Value>
