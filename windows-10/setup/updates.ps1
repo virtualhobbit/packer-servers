@@ -9,6 +9,3 @@ Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot
 
 # Run it again, as apparently it needs two attempts
 Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot
-
-# Reboot
-shutdown /r /t 0
