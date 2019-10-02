@@ -1,7 +1,14 @@
+# Get the provider
 Get-PackageProvider -Name nuget -Force
 
+# Install the module
 Install-Module PSWindowsUpdate -Confirm:$false -Force
 
-Import-Module PSWindowsUpdate
-
+# Install updates
 Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot
+
+# Run it again, as apparently it needs two attempts
+Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot
+
+# Reboot
+shutdown /r /t 0
