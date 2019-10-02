@@ -8,7 +8,9 @@ Get-PackageProvider -Name nuget -Force
 Install-Module PSWindowsUpdate -Confirm:$false -Force
 
 # Install updates
-Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot | Out-File C:\result.txt
+Get-WindowsUpdate | Out-File C:\result.txt
+
+Install-WindowsUpdate -AcceptAll -IgnoreReboot
 
 # Sleepy time...
 Start-Sleep -Seconds 600
