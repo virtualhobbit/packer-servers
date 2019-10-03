@@ -13,7 +13,7 @@ Install-Module PSWindowsUpdate -Confirm:$false -Force
 Install-WindowsUpdate -AcceptAll -IgnoreReboot
 
 # Sleepy time...
-Start-Sleep -Seconds 100
+Start-Sleep -Seconds 1200
 
 # Run it again, as apparently it needs two attempts
-Install-WindowsUpdate AcceptAll -IgnoreReboot
+Install-WindowsUpdate -AcceptAll -IgnoreReboot
