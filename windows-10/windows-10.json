@@ -66,7 +66,7 @@
         "inline": [
           "Get-PackageProvider -Name nuget -Force",
           "Install-Module PSWindowsUpdate -Confirm:$false -Force",
-          "Install-WindowsUpdate -AcceptAll -IgnoreReboot",
+          "Invoke-Command -ScriptBlock { Install-WindowsUpdate -AcceptAll -IgnoreReboot } -Credential .\Administrator",
           "Start-Sleep -Seconds 1200",
           "Get-WindowsUpdate | Out-File C:\result.txt"
         ]
