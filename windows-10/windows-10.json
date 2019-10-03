@@ -58,8 +58,17 @@
           "{{template_dir}}/setup/certs.ps1",
           "{{template_dir}}/setup/appvolumes.ps1",
           "{{template_dir}}/setup/dem.ps1",
-          "{{template_dir}}/setup/agent.ps1",
-          "{{template_dir}}/setup/updates.ps1"  
+          "{{template_dir}}/setup/agent.ps1"
+        ]
+      },
+      {
+        "type": "powershell",
+        "inline": [
+          "Get-PackageProvider -Name nuget -Force",
+          "Install-Module PSWindowsUpdate -Confirm:$false -Force",
+          "Install-WindowsUpdate -AcceptAll -IgnoreReboot",
+          "Start-Sleep -Seconds 1200",
+          "Get-WindowsUpdate | Out-File C:\result.txt"
         ]
       }
     ]
