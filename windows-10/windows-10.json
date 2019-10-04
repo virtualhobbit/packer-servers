@@ -60,16 +60,6 @@
           "{{template_dir}}/setup/dem.ps1",
           "{{template_dir}}/setup/agent.ps1"
         ]
-      },
-      {
-        "type": "powershell",
-        "inline": [
-          "Get-PackageProvider -Name nuget -Force",
-          "Install-Module PSWindowsUpdate -Confirm:$false -Force",
-          "Invoke-Command -ScriptBlock { Install-WindowsUpdate -AcceptAll -IgnoreReboot } -Credential .\\Administrator",
-          "Start-Sleep -Seconds 1200",
-          "Get-WindowsUpdate | Out-File C:\result.txt"
-        ]
       }
     ]
 }
