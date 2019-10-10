@@ -17,6 +17,9 @@ ForEach ($file in $osot,$osotConfig,$template) {
 # Run OSOT
 C:\VMwareOSOptimizationTool.exe -o -t C:\$template
 
+# Sleep before cleanup
+Start-Sleep -Seconds 180
+
 # Cleanup on aisle 4...
 ForEach ($file in $osot,$osotConfig,$template) {
    Remove-Item C:\$file -Confirm:$false
