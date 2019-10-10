@@ -9,11 +9,10 @@ $listConfig = "/i ""C:\$installer"" /qn /norestart ADDLOCAL=FlexEngine LICENSEFI
 # Verify connectivity
 Test-Connection $webserver -Count 1
 
-# Get DEM Agent
-Invoke-WebRequest -Uri ($url + "/" + $installer) -OutFile C:\$installer
-
-# Get DEM licence
-Invoke-WebRequest -Uri ($url + "/" + $licence) -OutFile C:\$licence
+# Get Files
+ForEach ($file in $installer,$licence) {
+   Invoke-WebRequest -Uri ($url + "/" + $file) -OutFile C:\$file
+}
 
 # Unblock installer
 Unblock-File C:\$installer -Confirm:$false
@@ -31,4 +30,6 @@ Catch
 }
 
 # Cleanup on aisle 4...
-Remove-Item C:\$installer -Confirm:$false
+ForEach ($file in $installer,$licence) {
+   Remove-Item C:\$file -Confirm:$false
+}
