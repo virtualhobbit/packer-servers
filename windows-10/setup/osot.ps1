@@ -2,29 +2,22 @@ $ErrorActionPreference = "Stop"
 
 $webserver = "intranet.mdb-lab.com"
 $url = "http://" + $webserver
-$installer = "VMware-Horizon-Agent-x86_64-7.9.0-13938590.exe"
-$listConfig = "/s /v ""/qn REBOOT=ReallySuppress ADDLOCAL=Core,RTAV,ClientDriveRedirection,VmwVaudio"""
+$osot = "VMwareOSOptimizationTool.exe"
+$osotConfig = "VMwareOSOptimizationTool.exe.comfig"
+$template = "VMware Templates\Windows 10"
 
 # Verify connectivity
 Test-Connection $webserver -Count 1
 
-# Get Horizon Agent
-Invoke-WebRequest -Uri ($url + "/" + $installer) -OutFile C:\$installer
-
-# Unblock installer
-Unblock-File C:\$installer -Confirm:$false -ErrorAction Stop
-
-# Install Horizon Agent
-Try 
-{
-   Start-Process C:\$installer -ArgumentList $listConfig -PassThru -Wait -ErrorAction Stop
-}
-Catch
-{
-   Write-Error "Failed to install the Horizon Agent"
-   Write-Error $_.Exception
-   Exit -1 
+# Get Files
+ForEach ($file in $osot,$osotConfig) {
+   Invoke-WebRequest -Uri ($url + "/" + $file) -OutFile C:\$file
 }
 
-# Cleanup on aisle 4...
-Remove-Item C:\$installer -Confirm:$false
+# Run OSOT
+$osot -o -t $template
+
+# Delete files
+#ForEach ($file in $osot,$osotConfig) {
+#   Remove-Item C:\$cert -Confirm:$false
+#}
