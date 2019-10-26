@@ -8,7 +8,7 @@
         "password":            "{{user `password`}}",
         "insecure_connection": "true",
 
-        "vm_name": "Windows 10 (LC) (PILOT)",
+        "vm_name": "Windows 10 (PROVISIONING)",
         "datastore": "{{user `datastore`}}",
         "create_snapshot": "false",
         "cluster": "{{user `cluster`}}",
