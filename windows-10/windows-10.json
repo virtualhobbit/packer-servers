@@ -8,7 +8,7 @@
         "password":            "{{user `password`}}",
         "insecure_connection": "true",
 
-        "vm_name": "Windows 10 (LC) (PILOT)",
+        "vm_name": "Windows 10 (LC) (PILOT))",
         "datastore": "{{user `datastore`}}",
         "create_snapshot": "false",
         "cluster": "{{user `cluster`}}",
@@ -58,7 +58,7 @@
           "{{template_dir}}/setup/certs.ps1",
           "{{template_dir}}/setup/appvolumes.ps1",
           "{{template_dir}}/setup/dem.ps1",
-          "{{template_dir}}/setup/agent.ps1"
+          "{{template_dir}}/setup/agent.ps1"       
         ]
       }
     ]
