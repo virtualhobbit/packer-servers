@@ -33,7 +33,7 @@
         "network_card": "vmxnet3",
 
         "iso_paths": [
-        "[{{user `datastore_iso`}}] en-gb_windows_10_business_editions_version_1903_x64_dvd_4170a06f.iso",
+        "[{{user `datastore_iso`}}] en-gb_windows_10_business_editions_version_1909_updated_dec_2019_x64_dvd_7751c93c.iso",
         "[{{user `datastore_iso`}}] VMware-tools-windows-10.3.10-12406962.iso"
         ],
 
