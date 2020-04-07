@@ -1,7 +1,7 @@
 {
     "vcenter_server":"nl-utc-p-mgt-01.nl.mdb-lab.com",
     "username":"sa_packer@nl.mdb-lab.com",
-    "password":"P@ssw0rd.1",
+    "password":"jnccEvC3wXSc3TzzHC5_",
     "datastore":"vsanDatastore",
     "datastore_iso":"ISO",
     "cluster": "Management",
