@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 
 $webserver = "intranet.mdb-lab.com"
 $url = "http://" + $webserver
-$installer = "VMware Dynamic Environment Manager 9.10 x64.msi"
+$installer = "VMware Dynamic Environment Manager 9.11 x64.msi"
 $licence = "dem.lic"
 $listConfig = "/i ""C:\$installer"" /qn /norestart ADDLOCAL=FlexEngine LICENSEFILE=dem.lic"
 
