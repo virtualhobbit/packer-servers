@@ -8,7 +8,7 @@
       "password":              "{{user `password`}}",
       "insecure_connection":   "true",
 
-      "vm_name":               "CentOS 8 (TEST)",
+      "vm_name":               "CentOS 8",
       "datastore":             "{{user `datastore`}}",
       "folder":                "{{user `folder`}}",
       "create_snapshot":       "false",

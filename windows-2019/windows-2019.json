@@ -8,7 +8,7 @@
       "password":              "{{user `password`}}",
       "insecure_connection":   "true",
 
-      "vm_name":               "Windows Server 2019 (TEST)",
+      "vm_name":               "Windows Server 2019",
       "datastore":             "{{user `datastore`}}",
       "folder":                "{{user `folder`}}",
       "create_snapshot":       "false",
@@ -63,6 +63,14 @@
     {
       "type":                  "windows-restart",
       "restart_timeout":       "30m"
+    },
+    {
+      "type":                   "windows-update",
+      "search_criteria":        "IsInstalled=0",
+      "filters": [
+        "exclude:$_.Title -like '*Preview*'",
+        "include:$true"
+      ]
     }
   ]
 }
