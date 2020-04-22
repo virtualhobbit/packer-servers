@@ -16,6 +16,7 @@
       "network":               "{{user `network`}}",
       "boot_order":            "disk,cdrom",  
       "convert_to_template":   "true",
+      "notes":                 "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
 
       "vm_version":            15,
       "guest_os_type":         "centos7_64Guest",
@@ -55,10 +56,6 @@
       "scripts": [
         "setup/update.sh"
       ]
-    },
-    {
-      "type":                  "shell",
-      "inline":                "echo 'Template build complete ({{isotime \"2006-01-02 15:04:05\"}})!'"
     }
   ]
 }

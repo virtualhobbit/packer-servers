@@ -16,6 +16,7 @@
       "network":               "{{user `network`}}",
       "boot_order":            "disk,cdrom",
       "convert_to_template":   "true",
+      "notes":                 "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
 
       "vm_version":            15,  
       "guest_os_type":         "windows9Server64Guest",
@@ -55,7 +56,8 @@
     {
       "type":                  "powershell",
       "scripts": [
-        "{{template_dir}}/setup/certs.ps1"
+        "{{template_dir}}/setup/certs.ps1",
+        "{{template_dir}}/setup/bginfo.ps1"
       ]
     },
     {
