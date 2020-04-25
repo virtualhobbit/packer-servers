@@ -44,7 +44,7 @@
       "http_port_min":         8601,
       "http_port_max":         8610,
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+        "<up><wait><tab><wait> text ks=http://intranet.mdb-lab.com/centos-8.cfg<enter><wait>"
       ],
       "shutdown_command":      "echo '{{user `ssh_password`}}' | sudo -S -E shutdown -P now"
     }
