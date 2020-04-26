@@ -1,0 +1,61 @@
+{
+  "builders": [
+    {
+      "type":                  "vsphere-iso",
+
+      "vcenter_server":        "{{user `vcenter_server`}}",
+      "username":              "{{user `username`}}",
+      "password":              "{{user `password`}}",
+      "insecure_connection":   "true",
+
+      "vm_name":               "Ubuntu 20.04",
+      "datastore":             "{{user `datastore`}}",
+      "folder":                "{{user `folder`}}",
+      "create_snapshot":       "false",
+      "cluster":               "{{user `cluster`}}",
+      "network":               "{{user `network`}}",
+      "boot_order":            "disk,cdrom",  
+      "convert_to_template":   "true",
+      "notes":                 "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
+
+      "vm_version":            15,
+      "guest_os_type":         "ubuntu64Guest",
+
+      "communicator":          "ssh",
+      "ssh_username":          "{{user `ssh_username`}}",
+      "ssh_password":          "{{user `ssh_password`}}",
+
+      "CPUs":                  2,
+      "RAM":                   8192,
+    
+      "disk_controller_type":  "pvscsi",
+      "disk_size":             30720,
+      "disk_thin_provisioned": true,
+
+      "network_card":          "vmxnet3",
+    
+      "iso_paths": [
+        "[{{user `datastore_iso`}}] ubuntu-20.04-desktop-amd64.iso"
+      ],
+
+      "remove_cdrom":          "true",
+
+      "http_directory":        "setup",
+      "http_port_min":         8601,
+      "http_port_max":         8610,
+      "boot_command": [
+        "<up><wait><tab><wait> text ks=http://intranet.mdb-lab.com/ubuntu-20.04.cfg<enter><wait>"
+      ],
+      "shutdown_command":      "echo '{{user `ssh_password`}}' | sudo -S -E shutdown -P now"
+    }
+  ],
+  "provisioners": [
+    {
+      "type":                  "shell",
+      "execute_command":       "echo '{{user `ssh_password`}}' | sudo -S -E bash '{{.Path}}'",
+      "scripts": [
+        "setup/update.sh"
+      ]
+    }
+  ]
+}
