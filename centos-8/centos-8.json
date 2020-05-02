@@ -6,16 +6,16 @@
       "vcenter_server":        "{{user `vcenter_server`}}",
       "username":              "{{user `username`}}",
       "password":              "{{user `password`}}",
-      "insecure_connection":   "true",
+      "insecure_connection":   true,
 
       "vm_name":               "CentOS 8",
       "datastore":             "{{user `datastore`}}",
       "folder":                "{{user `folder`}}",
-      "create_snapshot":       "false",
+      "create_snapshot":       false,
       "cluster":               "{{user `cluster`}}",
       "network":               "{{user `network`}}",
       "boot_order":            "disk,cdrom",  
-      "convert_to_template":   "true",
+      "convert_to_template":   true,
       "notes":                 "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
 
       "vm_version":            15,
@@ -34,15 +34,10 @@
 
       "network_card":          "vmxnet3",
     
-      "iso_paths": [
-        "[{{user `datastore_iso`}}] CentOS-8.1.1911-x86_64-dvd1.iso"
-      ],
+      "iso_paths":             "[{{user `datastore_iso`}}] CentOS-8.1.1911-x86_64-dvd1.iso",
 
-      "remove_cdrom":          "true",
+      "remove_cdrom":          true,
 
-      "http_directory":        "setup",
-      "http_port_min":         8601,
-      "http_port_max":         8610,
       "boot_command": [
         "<up><wait><tab><wait> text ks=http://intranet.mdb-lab.com/centos-8.cfg<enter><wait>"
       ],

@@ -6,16 +6,16 @@
       "vcenter_server":        "{{user `vcenter_server`}}",
       "username":              "{{user `username`}}",
       "password":              "{{user `password`}}",
-      "insecure_connection":   "true",
+      "insecure_connection":   true,
 
       "vm_name":               "CentOS 7",
       "datastore":             "{{user `datastore`}}",
       "folder":                "{{user `folder`}}",
-      "create_snapshot":       "false",
+      "create_snapshot":       false,
       "cluster":               "{{user `cluster`}}",
       "network":               "{{user `network`}}",
       "boot_order":            "disk,cdrom",  
-      "convert_to_template":   "true",
+      "convert_to_template":   true,
       "notes":                 "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
 
       "vm_version":            15,
@@ -27,22 +27,17 @@
 
       "CPUs":                  2,
       "RAM":                   2048,
-    
+
       "disk_controller_type":  "pvscsi",
       "disk_size":             16384,
       "disk_thin_provisioned": true,
 
       "network_card":          "vmxnet3",
-    
-      "iso_paths": [
-        "[{{user `datastore_iso`}}] CentOS-7-x86_64-DVD-1908.iso"
-      ],
 
-      "remove_cdrom":          "true",
+      "iso_paths":             "[{{user `datastore_iso`}}] CentOS-7-x86_64-DVD-1908.iso",
 
-      "http_directory":        "setup",
-      "http_port_min":         8601,
-      "http_port_max":         8610,
+      "remove_cdrom":          true,
+
       "boot_command": [
         "<up><wait><tab><wait> text ks=http://intranet.mdb-lab.com/centos-7.cfg<enter><wait>"
       ],
