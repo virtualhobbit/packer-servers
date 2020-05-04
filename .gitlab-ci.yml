@@ -31,3 +31,10 @@ deploy_centos-8:
     - echo "Deploying CentOS 8"
     - cd centos-8
     - ../packer build -force -var-file variables.json centos-8.json
+
+    deploy_windows-2019:
+  stage: deploy
+  script:
+    - echo "Deploying Windows Server 2019"
+    - cd windows-2019
+    - ../packer build -force -var-file variables.json windows-2019.json
