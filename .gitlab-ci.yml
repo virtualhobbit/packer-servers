@@ -24,3 +24,10 @@ deploy_centos-7:
     - echo "Deploying CentOS 7"
     - cd centos-7
     - ../packer build -force -var-file variables.json centos-7.json
+
+deploy_centos-8:
+  stage: deploy
+  script:
+    - echo "Deploying CentOS 8"
+    - cd centos-8
+    - ../packer build -force -var-file variables.json centos-8.json
