@@ -57,8 +57,7 @@
     {
       "type":                  "powershell",
       "scripts": [
-        "{{template_dir}}/setup/certs.ps1",
-        "{{template_dir}}/setup/appvolumes.ps1"
+        "{{template_dir}}/setup/certs.ps1"
       ]
     },
     {
