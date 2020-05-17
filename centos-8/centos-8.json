@@ -4,7 +4,7 @@
       "name":                  "Utrecht",
       "type":                  "vsphere-iso",
 
-      "vcenter_server":        "{{user `vcenter_server`}}",
+      "vcenter_server":        "nl-utc-p-mgt-01.nl.mdb-lab.com",
       "username":              "{{user `username`}}",
       "password":              "{{user `password`}}",
       "insecure_connection":   true,
