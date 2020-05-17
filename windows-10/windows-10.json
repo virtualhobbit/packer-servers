@@ -16,7 +16,7 @@
       "boot_order":            "disk,cdrom",
       "convert_to_template":   false,
 
-      "vm_version":            15,  
+      "vm_version":            15,
       "guest_os_type":         "windows9_64Guest",
 
       "communicator":          "winrm",
@@ -60,7 +60,6 @@
         "{{template_dir}}/setup/certs.ps1",
         "{{template_dir}}/setup/appvolumes.ps1",
         "{{template_dir}}/setup/dem.ps1",
-        "{{template_dir}}/setup/agent.ps1",
         "{{template_dir}}/setup/bginfo.ps1"
       ]
     },
