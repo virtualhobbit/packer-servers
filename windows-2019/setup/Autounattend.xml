@@ -14,7 +14,7 @@
             <DriverPaths>
                 <PathAndCredentials wcm:action="add" wcm:keyValue="A">
                     <!-- pvscsi-Windows8.flp -->
-                    <Path>B:\</Path>
+                    <Path>E:\Program Files\VMware\VMware Tools\Drivers\pvscsi\Win8\amd64</Path>
                 </PathAndCredentials>
             </DriverPaths>
         </component>

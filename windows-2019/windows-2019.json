@@ -43,7 +43,6 @@
       "floppy_files": [
         "{{template_dir}}/setup/"
       ],
-      "floppy_img_path":       "[{{user `datastore`}}] Floppies/pvscsi-Windows8.flp",
       "remove_cdrom": true
     },
     {
@@ -89,7 +88,6 @@
       "floppy_files": [
         "{{template_dir}}/setup/"
       ],
-      "floppy_img_path":       "[{{user `datastore`}}] Floppies/pvscsi-Windows8.flp",
       "remove_cdrom": true
     }
   ],
