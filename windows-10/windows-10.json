@@ -42,7 +42,6 @@
       "floppy_files": [
         "{{template_dir}}/setup/"
       ],
-      "floppy_img_path":       "[vsanDatastore] Floppies/pvscsi-Windows8.flp",
       "remove_cdrom":          true
     },
     {
@@ -87,7 +86,6 @@
       "floppy_files": [
         "{{template_dir}}/setup/"
       ],
-      "floppy_img_path":       "[SAS_R5] Floppies/pvscsi-Windows8.flp",
       "remove_cdrom":          true
     }
   ],
