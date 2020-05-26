@@ -36,8 +36,8 @@ deploy_centos-8:
 deploy_windows-2016:
   stage: deploy
   script:
-    - $env:PACKER_LOG=1
-    - $env:PACKER_LOG_PATH="packerlog.txt"
+    - export PACKER_LOG=1
+    - export PACKER_LOG_PATH="packerlog.txt"
     - echo "Deploying Windows Server 2016"
     - cd windows-2016
     - ../packer build -debug -force -var-file variables.json windows-2016.json
@@ -45,6 +45,8 @@ deploy_windows-2016:
 deploy_windows-2019:
   stage: deploy
   script:
+    - export PACKER_LOG=1
+    - export PACKER_LOG_PATH="packerlog.txt"
     - echo "Deploying Windows Server 2019"
     - cd windows-2019
-    - ../packer build -force -var-file variables.json windows-2019.json
+    - ../packer build -debug -force -var-file variables.json windows-2019.json
