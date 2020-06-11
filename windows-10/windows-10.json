@@ -9,7 +9,7 @@
       "password":              "{{user `password`}}",
       "insecure_connection":   true,
 
-      "vm_name":               "Windows 10 (LC) (1903)",
+      "vm_name":               "Windows 10 (LC) (2004)",
       "datastore":             "vsanDatastore",
       "create_snapshot":       true,
       "cluster":               "{{user `cluster`}}",
@@ -35,8 +35,8 @@
       "network_card":          "vmxnet3",
 
       "iso_paths": [
-        "[{{user `datastore_iso`}}] en-gb_windows_10_business_editions_version_1903_x64_dvd_4170a06f.iso",
-        "[{{user `datastore_iso`}}] VMware-tools-windows-11.0.6-15940789.iso"
+        "[{{user `datastore_iso`}}] en-gb_windows_10_business_editions_version_2004_updated_may_2020_x64_dvd_783c55e0.iso",
+        "[{{user `datastore_iso`}}] VMware-tools-windows-11.1.0-16036546.iso"
       ],
 
       "floppy_files": [
@@ -80,7 +80,7 @@
 
       "iso_paths": [
         "[{{user `datastore_iso`}}] en-gb_windows_10_business_editions_version_1903_x64_dvd_4170a06f.iso",
-        "[{{user `datastore_iso`}}] VMware-tools-windows-11.0.6-15940789.iso"
+        "[{{user `datastore_iso`}}] VMware-tools-windows-11.1.0-16036546.iso"
       ],
 
       "floppy_files": [
@@ -102,10 +102,10 @@
       "type":                  "powershell",
       "scripts": [
         "{{template_dir}}/setup/certs.ps1",
-        "{{template_dir}}/setup/appvolumes.ps1",
-        "{{template_dir}}/setup/dem.ps1",
+        "{{template_dir}}/setup/bginfo.ps1",
         "{{template_dir}}/setup/agent.ps1",
-        "{{template_dir}}/setup/bginfo.ps1"
+        "{{template_dir}}/setup/dem.ps1",
+        "{{template_dir}}/setup/appvolumes.ps1"
       ]
     },
     {

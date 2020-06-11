@@ -2,8 +2,12 @@ $ErrorActionPreference = "Stop"
 
 # Switch network connection to private mode
 # Required for WinRM firewall rules
-$profile = Get-NetConnectionProfile
+While ($profile.Name -ne "Network"){
+    Start-Sleep -Seconds 10
+    $profile = Get-NetConnectionProfile
+}
 Set-NetConnectionProfile -Name $profile.Name -NetworkCategory Private
+netsh advfirewall firewall set privateprofile rule group="Network Discovery" new enable=Yes
 
 # Enable WinRM service
 winrm quickconfig -quiet
