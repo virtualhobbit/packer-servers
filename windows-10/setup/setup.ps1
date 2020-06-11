@@ -7,6 +7,8 @@ While ($profile.Name -ne "Network"){
     $profile = Get-NetConnectionProfile
 }
 Set-NetConnectionProfile -Name $profile.Name -NetworkCategory Private
+
+# Enable Network Discovery
 netsh advfirewall firewall set privateprofile rule group="Network Discovery" new enable=Yes
 
 # Enable WinRM service
