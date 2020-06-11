@@ -25,7 +25,7 @@
       "disk_controller_type":      "pvscsi",      
       "storage": [
         {
-          "disk_size": 51200,
+          "disk_size":             51200,
           "disk_thin_provisioned": true
         }
       ],      
