@@ -9,7 +9,8 @@ While ($profile.Name -ne "Network"){
 Set-NetConnectionProfile -Name $profile.Name -NetworkCategory Private
 
 # Enable Network Discovery
-netsh advfirewall firewall set privateprofile rule group="Network Discovery" new enable=Yes
+netsh advfirewall firewall set rule group="Network Discovery" new enable=Yes
+# netsh advfirewall firewall set privateprofile rule group="Network Discovery" new enable=Yes
 
 # Enable WinRM service
 winrm quickconfig -quiet
