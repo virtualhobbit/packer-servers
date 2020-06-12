@@ -1,98 +1,110 @@
 {
   "builders": [
     {
-      "name":                  "Utrecht",
-      "type":                  "vsphere-iso",
+      "name":                      "Utrecht",
+      "type":                      "vsphere-iso",
 
-      "vcenter_server":        "nl-utc-p-mgt-01.nl.mdb-lab.com",
-      "username":              "{{user `username`}}",
-      "password":              "{{user `password`}}",
-      "insecure_connection":   true,
+      "vcenter_server":            "nl-utc-p-mgt-01.nl.mdb-lab.com",
+      "username":                  "{{user `username`}}",
+      "password":                  "{{user `password`}}",
+      "insecure_connection":       true,
 
-      "vm_name":               "CentOS 8",
-      "datastore":             "{{user `datastore`}}",
-      "folder":                "{{user `folder`}}",
-      "create_snapshot":       false,
-      "cluster":               "{{user `cluster`}}",
-      "network":               "{{user `network`}}",
-      "boot_order":            "disk,cdrom",  
-      "convert_to_template":   true,
-      "notes":                 "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
+      "vm_name":                   "CentOS 8",
+      "vm_version":                15,
+      "guest_os_type":             "centos7_64Guest",
+      "boot_order":                "disk,cdrom",
+      "create_snapshot":           false,
+      "convert_to_template":       true,
 
-      "vm_version":            15,
-      "guest_os_type":         "centos8_64Guest",
+      "cluster":                   "{{user `cluster`}}",
+      "CPUs":                      1,
+      "RAM":                       2048,
 
-      "communicator":          "ssh",
-      "ssh_username":          "{{user `ssh_username`}}",
-      "ssh_password":          "{{user `ssh_password`}}",
+      "datastore":                 "{{user `datastore`}}",
+      "folder":                    "{{user `folder`}}",
+      "disk_controller_type":      "pvscsi",
+      "storage": [
+        {
+          "disk_size":             16384,
+          "disk_thin_provisioned": true
+        }
+      ],
+      "iso_paths":                 "[{{user `datastore_iso`}}] CentOS-8.1.1911-x86_64-dvd1.iso",
+      "remove_cdrom":              true,
 
-      "CPUs":                  1,
-      "RAM":                   2048,
-    
-      "disk_controller_type":  "pvscsi",
-      "disk_size":             16384,
-      "disk_thin_provisioned": true,
+      "network_adapters": [
+        {
+          "network":               "{{user `network`}}",
+          "network_card":          "vmxnet3"
+        }
+      ],
 
-      "network_card":          "vmxnet3",
-    
-      "iso_paths":             "[{{user `datastore_iso`}}] CentOS-8.1.1911-x86_64-dvd1.iso",
-
-      "remove_cdrom":          true,
+      "notes":                     "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
 
       "boot_command": [
         "<up><wait><tab><wait> text ks=http://intranet.mdb-lab.com/centos-8.cfg<enter><wait>"
       ],
-      "shutdown_command":      "echo '{{user `ssh_password`}}' | sudo -S -E shutdown -P now"
+      "shutdown_command":          "echo '{{user `ssh_password`}}' | sudo -S -E shutdown -P now",
+
+      "communicator":              "ssh",
+      "ssh_username":              "{{user `ssh_username`}}",
+      "ssh_password":              "{{user `ssh_password`}}"
     },
     {
-      "name":                  "Southport",
-      "type":                  "vsphere-iso",
+      "name":                      "Southport",
+      "type":                      "vsphere-iso",
 
-      "vcenter_server":        "gb-srt-p-mgt-01.uk.mdb-lab.com",
-      "username":              "{{user `username`}}",
-      "password":              "{{user `password`}}",
-      "insecure_connection":   true,
+      "vcenter_server":            "gb-srt-p-mgt-01.uk.mdb-lab.com",
+      "username":                  "{{user `username`}}",
+      "password":                  "{{user `password`}}",
+      "insecure_connection":       true,
 
-      "vm_name":               "CentOS 8",
-      "datastore":             "{{user `datastore`}}",
-      "folder":                "{{user `folder`}}",
-      "create_snapshot":       false,
-      "cluster":               "{{user `cluster`}}",
-      "network":               "{{user `network`}}",
-      "boot_order":            "disk,cdrom",  
-      "convert_to_template":   true,
-      "notes":                 "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
+      "vm_name":                   "CentOS 8",
+      "vm_version":                15,
+      "guest_os_type":             "centos7_64Guest",
+      "boot_order":                "disk,cdrom",
+      "create_snapshot":           false,
+      "convert_to_template":       true,
 
-      "vm_version":            15,
-      "guest_os_type":         "centos8_64Guest",
+      "cluster":                   "{{user `cluster`}}",
+      "CPUs":                      1,
+      "RAM":                       2048,
 
-      "communicator":          "ssh",
-      "ssh_username":          "{{user `ssh_username`}}",
-      "ssh_password":          "{{user `ssh_password`}}",
+      "datastore":                 "{{user `datastore`}}",
+      "folder":                    "{{user `folder`}}",
+      "disk_controller_type":      "pvscsi",
+      "storage": [
+        {
+          "disk_size":             16384,
+          "disk_thin_provisioned": true
+        }
+      ],
+      "iso_paths":                 "[{{user `datastore_iso`}}] CentOS-8.1.1911-x86_64-dvd1.iso",
+      "remove_cdrom":              true,
 
-      "CPUs":                  2,
-      "RAM":                   2048,
-    
-      "disk_controller_type":  "pvscsi",
-      "disk_size":             16384,
-      "disk_thin_provisioned": true,
+      "network_adapters": [
+        {
+          "network":               "{{user `network`}}",
+          "network_card":          "vmxnet3"
+        }
+      ],
 
-      "network_card":          "vmxnet3",
-    
-      "iso_paths":             "[{{user `datastore_iso`}}] CentOS-8.1.1911-x86_64-dvd1.iso",
-
-      "remove_cdrom":          true,
+      "notes":                     "Base OS, VMware Tools, patched up to {{isotime \"20060102\"}}",
 
       "boot_command": [
         "<up><wait><tab><wait> text ks=http://intranet.mdb-lab.com/centos-8.cfg<enter><wait>"
       ],
-      "shutdown_command":      "echo '{{user `ssh_password`}}' | sudo -S -E shutdown -P now"
+      "shutdown_command":          "echo '{{user `ssh_password`}}' | sudo -S -E shutdown -P now",
+
+      "communicator":              "ssh",
+      "ssh_username":              "{{user `ssh_username`}}",
+      "ssh_password":              "{{user `ssh_password`}}"
     }
   ],
   "provisioners": [
     {
-      "type":                  "shell",
-      "execute_command":       "echo '{{user `ssh_password`}}' | sudo -S -E bash '{{.Path}}'",
+      "type":                      "shell",
+      "execute_command":           "echo '{{user `ssh_password`}}' | sudo -S -E bash '{{.Path}}'",
       "scripts": [
         "setup/update.sh"
       ]
