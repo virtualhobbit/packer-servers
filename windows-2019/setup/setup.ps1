@@ -14,9 +14,7 @@ winrm quickconfig -quiet
 winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 winrm set winrm/config/service/auth '@{Basic="true"}'
 
-# Enable WinRM on Public profile
-Set-NetFirewallRule -Name 'WINRM-HTTP-In-TCP' -RemoteAddress Any -Enabled True
-
+# Drop the firewall while building and re-enable as a standalone provisioner in the Packer file if needs be
 netsh Advfirewall set allprofiles state off
 
 # Reset auto logon count
