@@ -18,20 +18,6 @@ get_packer:
     - unzip packer_1.6.0_linux_amd64.zip
     - chmod +x packer
 
-deploy_centos-8:
-  stage: deploy
-  script:
-    - echo "Deploying CentOS 8"
-    - cd centos-8
-    - ../packer build -force -var-file variables.json centos-8.json
-
-deploy_centos-7:
-  stage: deploy
-  script:
-    - echo "Deploying CentOS 7"
-    - cd centos-7
-    - ../packer build -force -var-file variables.json centos-7.json
-
 deploy_windows-2019:
   stage: deploy
   artifacts:
@@ -43,10 +29,4 @@ deploy_windows-2019:
     - echo "Deploying Windows Server 2019"
     - cd windows-2019
     - ../packer build -force -var-file variables.json windows-2019.json
-
-deploy_windows-2016:
-  stage: deploy
-  script:
-    - echo "Deploying Windows Server 2016"
-    - cd windows-2016
-    - ../packer build -force -var-file variables.json windows-2016.json
+    
