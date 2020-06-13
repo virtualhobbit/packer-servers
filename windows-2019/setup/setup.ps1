@@ -17,6 +17,8 @@ winrm set winrm/config/service/auth '@{Basic="true"}'
 # Enable WinRM on Public profile
 Set-NetFirewallRule -Name 'WINRM-HTTP-In-TCP' -RemoteAddress Any -Enabled True
 
+netsh Advfirewall set allprofiles state off
+
 # Reset auto logon count
 # https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-autologon-logoncount#logoncount-known-issue
 Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon' -Name AutoLogonCount -Value 0
