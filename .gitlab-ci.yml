@@ -34,7 +34,12 @@ deploy_centos-7:
 
 deploy_windows-2019:
   stage: deploy
+  artifacts:
+    paths:
+    - packerlog.txt
   script:
+    - export PACKER_LOG=1
+    - PACKER_LOG_PATH="packerlog.txt"
     - echo "Deploying Windows Server 2019"
     - cd windows-2019
     - ../packer build -force -var-file variables.json windows-2019.json
