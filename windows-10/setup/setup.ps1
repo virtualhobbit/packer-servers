@@ -9,15 +9,6 @@ While ($profile.Name -eq "Identifying..."){
 }
 Set-NetConnectionProfile -Name $profile.Name -NetworkCategory Private
 
-# Disable Network Discovery
-# netsh advfirewall firewall set rule group="Network Discovery" new enable=No
-
-# Disanle Network Location Awareness
-# Set-Service -Name NlaSvc -StartupType Disabled
-
-# Enable PS Remoting
-# Enable-PSRemoting -SkipNetworkProfileCheck -Force
-
 # Enable WinRM service
 winrm quickconfig -quiet
 winrm set winrm/config/service '@{AllowUnencrypted="true"}'
