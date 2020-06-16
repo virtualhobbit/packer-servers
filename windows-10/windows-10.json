@@ -110,12 +110,26 @@
     },
     {
       "type":                      "powershell",
+      "elevated_user":             "{{user `winrm_username`}}",
+      "elevated_password":         "{{user `winrm_password`}}",
+      "inline": [
+        "Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online"
+      ]
+    },
+    {
+      "type":                      "powershell",
       "scripts": [
         "{{template_dir}}/setup/certs.ps1",
         "{{template_dir}}/setup/bginfo.ps1",
         "{{template_dir}}/setup/agent.ps1",
         "{{template_dir}}/setup/dem.ps1",
         "{{template_dir}}/setup/appvolumes.ps1"
+      ]
+    },
+    {
+      "type":                      "powershell",
+      "inline": [
+        "Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online"
       ]
     },
     {
@@ -128,6 +142,12 @@
       "filters": [
         "exclude:$_.Title -like '*Preview*'",
         "include:$true"
+      ]
+    },
+    {
+      "type":                      "powershell",
+      "scripts": [
+        "{{template_dir}}/setup/sdelete.ps1"
       ]
     }
   ]

@@ -28,7 +28,7 @@
           "disk_thin_provisioned": true
         }
       ],
-      "iso_paths":                 "[{{user `datastore_iso`}}] CentOS-7-x86_64-DVD-1908.iso",
+      "iso_paths":                 "[{{user `datastore_iso`}}] CentOS-7-x86_64-DVD-2003.iso",
       "remove_cdrom":              true,
 
       "network_adapters": [
