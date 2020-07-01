@@ -2,8 +2,8 @@ $ErrorActionPreference = "Stop"
 
 $webserver = "intranet.mdb-lab.com"
 $url = "http://" + $webserver
-$installer = "App Volumes Agent.msi"
-$appVolumesServer = "nl-utc-p-aps-01.nl.mdb-lab.com"
+$installer = "App Volumes Agent4.msi"
+$appVolumesServer = "nl-utc-p-apv-01.nl.mdb-lab.com"
 $listConfig = "/i ""C:\$installer"" /qn REBOOT=ReallySuppress MANAGER_ADDR=$appVolumesServer MANAGER_PORT=443 EnforceSSLCertificateValidation=1"
 
 # Verify connectivity
