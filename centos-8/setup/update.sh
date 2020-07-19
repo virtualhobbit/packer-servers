@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Update existing packages
 dnf update -y
 

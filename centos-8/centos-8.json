@@ -106,8 +106,10 @@
       "type":                      "shell",
       "execute_command":           "echo '{{user `ssh_password`}}' | sudo -S -E bash '{{.Path}}'",
       "scripts": [
+        "setup/ansible.sh",
         "setup/update.sh"
       ]
     }
   ]
 }
+
