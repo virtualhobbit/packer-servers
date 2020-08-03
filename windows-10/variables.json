@@ -1,9 +1,0 @@
-{
-    "username":"sa_packer@nl.mdb-lab.com",
-    "password":"jnccEvC3wXSc3TzzHC5_",
-    "datastore_iso":"ISO",
-    "cluster": "Management",
-    "network": "VLAN70",
-    "winrm_username": "Administrator",
-    "winrm_password": "Zw44rdv15!"
-}
