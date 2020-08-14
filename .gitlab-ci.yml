@@ -5,7 +5,7 @@ stages:
 image: alpine
 
 before_script:
-  - apt install git wget
+  - apk add --no-cache git wget
   - git config --global http.sslVerify false
 
 get_packer:
