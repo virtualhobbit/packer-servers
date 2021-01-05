@@ -1,6 +1,6 @@
 stages:
+  - get
   - build
-  - deploy
 
 image: alpine
 
@@ -9,9 +9,9 @@ before_script:
   - git config --global http.sslVerify false
 
 get_packer:
-  stage: build
+  stage: get
   tags:
-    - linux
+    - bash
   artifacts:
     paths:
     - packer
@@ -21,37 +21,37 @@ get_packer:
     - unzip packer_"$packerVersion"_linux_amd64.zip
     - chmod +x packer
 
-deploy_centos-7:
-  stage: deploy
+build_centos-7:
+  stage: build
   tags:
-    - linux
+    - bash
   script:
     - echo "Deploying CentOS 7"
     - cd centos-7
     - ../packer build -force -var-file variables.json centos-7.json
 
-deploy_centos-8:
-  stage: deploy
+build_centos-8:
+  stage: build
   tags:
-    - linux
+    - bash
   script:
     - echo "Deploying CentOS 8"
     - cd centos-8
     - ../packer build -force -var-file variables.json centos-8.json
 
-deploy_windows-2016:
-  stage: deploy
+build_windows-2016:
+  stage: build
   tags:
-    - linux
+    - bash
   script:
     - echo "Deploying Windows Server 2016"
     - cd windows-2016
     - ../packer build -force -var-file variables.json windows-2016.json
 
-deploy_windows-2019:
-  stage: deploy
+build_windows-2019:
+  stage: build
   tags:
-    - linux
+    - bash
   script:
     - echo "Deploying Windows Server 2019"
     - cd windows-2019
