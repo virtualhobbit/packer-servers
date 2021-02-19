@@ -30,8 +30,8 @@
         }
       ],
       "iso_paths": [
-        "[{{user `datastore_iso`}}] en_windows_server_2019_updated_nov_2019_x64_dvd_56432a3e.iso",
-        "[{{user `datastore_iso`}}] VMware-tools-windows-11.1.0-16036546.iso"
+        "[{{user `datastore_iso`}}] en_windows_server_2019_updated_feb_2021_x64_dvd_277a6bfe.iso",
+        "[{{user `datastore_iso`}}] VMware-tools-windows-11.2.1-17243207.iso"
       ],
       "floppy_files": [
         "{{template_dir}}/setup/"
@@ -81,8 +81,8 @@
         }
       ],
       "iso_paths": [
-        "[{{user `datastore_iso`}}] en_windows_server_2019_updated_nov_2019_x64_dvd_56432a3e.iso",
-        "[{{user `datastore_iso`}}] VMware-tools-windows-11.1.0-16036546.iso"
+        "[{{user `datastore_iso`}}] en_windows_server_2019_updated_feb_2021_x64_dvd_277a6bfe.iso",
+        "[{{user `datastore_iso`}}] VMware-tools-windows-11.2.1-17243207.iso"
       ],
       "floppy_files": [
         "{{template_dir}}/setup/"

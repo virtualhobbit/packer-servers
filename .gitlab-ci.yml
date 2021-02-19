@@ -21,15 +21,6 @@ get_packer:
     - unzip packer_"$packerVersion"_linux_amd64.zip
     - chmod +x packer
 
-build_centos-7:
-  stage: build
-  tags:
-    - bash
-  script:
-    - echo "Deploying CentOS 7"
-    - cd centos-7
-    - ../packer build -force -var-file variables.json centos-7.json
-
 build_centos-8:
   stage: build
   tags:
@@ -38,15 +29,6 @@ build_centos-8:
     - echo "Deploying CentOS 8"
     - cd centos-8
     - ../packer build -force -var-file variables.json centos-8.json
-
-build_windows-2016:
-  stage: build
-  tags:
-    - bash
-  script:
-    - echo "Deploying Windows Server 2016"
-    - cd windows-2016
-    - ../packer build -force -var-file variables.json windows-2016.json
 
 build_windows-2019:
   stage: build
