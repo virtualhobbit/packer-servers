@@ -1,17 +1,30 @@
 {
+  "variables":{
+    "vcenterNL":                   "{{env `packer_vcenterNL`}}",
+    "vcenterUK":                   "{{env `packer_vcenterUK`}}",
+    "vcenterUser":                 "{{env `packer_vcenterUser`}}",
+    "vcenterPass":                 "{{env `packer_vcenterPass`}}",
+    "cluster":                     "{{env `packer_cluster`}}",
+    "datastore":                   "{{env `packer_datastore`}}",
+    "datastoreISO":                "{{env `packer_datastoreISO`}}",
+    "network":                     "{{env `packer_network`}}",
+    "folder":                      "{{env `packer_folder`}}",
+    "sshUser":                     "{{vault `credentials/users/misc/root` `Username`}}",
+    "sshPass":                     "{{vault `credentials/users/misc/root` `Password`}}"
+  },
   "builders": [
     {
       "name":                      "Utrecht",
       "type":                      "vsphere-iso",
 
-      "vcenter_server":            "nl-utc-p-mgt-01.nl.mdb-lab.com",
-      "username":                  "{{user `username`}}",
-      "password":                  "{{user `password`}}",
+      "vcenter_server":            "{{user `vcenterNL`}}",
+      "username":                  "{{user `vcenterUser`}}",
+      "password":                  "{{user `vcenterPass`}}",
       "insecure_connection":       true,
 
       "vm_name":                   "CentOS 8",
       "vm_version":                15,
-      "guest_os_type":             "centos7_64Guest",
+      "guest_os_type":             "centos8_64Guest",
       "boot_order":                "disk,cdrom",
       "create_snapshot":           false,
       "convert_to_template":       true,
@@ -29,7 +42,7 @@
           "disk_thin_provisioned": true
         }
       ],
-      "iso_paths":                 "[{{user `datastore_iso`}}] CentOS-8.2.2004-x86_64-dvd1.iso",
+      "iso_paths":                 "[{{user `datastoreISO`}}] CentOS-8.3.2011-x86_64-dvd1.iso",
       "remove_cdrom":              true,
 
       "network_adapters": [
@@ -44,24 +57,24 @@
       "boot_command": [
         "<up><wait><tab><wait> text ks=http://intranet.mdb-lab.com/centos-8.cfg<enter><wait>"
       ],
-      "shutdown_command":          "echo '{{user `ssh_password`}}' | sudo -S -E shutdown -P now",
+      "shutdown_command":          "echo '{{user `sshPass`}}' | sudo -S -E shutdown -P now",
 
       "communicator":              "ssh",
-      "ssh_username":              "{{user `ssh_username`}}",
-      "ssh_password":              "{{user `ssh_password`}}"
+      "ssh_username":              "{{user `sshUser`}}",
+      "ssh_password":              "{{user `sshPass`}}"
     },
     {
       "name":                      "Southport",
       "type":                      "vsphere-iso",
 
-      "vcenter_server":            "gb-srt-p-mgt-01.uk.mdb-lab.com",
-      "username":                  "{{user `username`}}",
-      "password":                  "{{user `password`}}",
+      "vcenter_server":            "{{user `vcenterUK`}}",
+      "username":                  "{{user `vcenterUser`}}",
+      "password":                  "{{user `vcenterPass`}}",
       "insecure_connection":       true,
 
       "vm_name":                   "CentOS 8",
       "vm_version":                15,
-      "guest_os_type":             "centos7_64Guest",
+      "guest_os_type":             "centos8_64Guest",
       "boot_order":                "disk,cdrom",
       "create_snapshot":           false,
       "convert_to_template":       true,
@@ -79,7 +92,7 @@
           "disk_thin_provisioned": true
         }
       ],
-      "iso_paths":                 "[{{user `datastore_iso`}}] CentOS-8.1.1911-x86_64-dvd1.iso",
+      "iso_paths":                 "[{{user `datastoreISO`}}] CentOS-8.3.2011-x86_64-dvd1.iso",
       "remove_cdrom":              true,
 
       "network_adapters": [
@@ -94,17 +107,17 @@
       "boot_command": [
         "<up><wait><tab><wait> text ks=http://intranet.mdb-lab.com/centos-8.cfg<enter><wait>"
       ],
-      "shutdown_command":          "echo '{{user `ssh_password`}}' | sudo -S -E shutdown -P now",
+      "shutdown_command":          "echo '{{user `sshPass`}}' | sudo -S -E shutdown -P now",
 
       "communicator":              "ssh",
-      "ssh_username":              "{{user `ssh_username`}}",
-      "ssh_password":              "{{user `ssh_password`}}"
+      "ssh_username":              "{{user `sshUser`}}",
+      "ssh_password":              "{{user `sshPass`}}"
     }
   ],
   "provisioners": [
     {
       "type":                      "shell",
-      "execute_command":           "echo '{{user `ssh_password`}}' | sudo -S -E bash '{{.Path}}'",
+      "execute_command":           "echo '{{user `sshPass`}}' | sudo -S -E bash '{{.Path}}'",
       "scripts": [
         "setup/ansible.sh",
         "setup/update.sh"
@@ -112,4 +125,3 @@
     }
   ]
 }
-
