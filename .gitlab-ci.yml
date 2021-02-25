@@ -27,7 +27,6 @@ build_centos-8:
     - bash
   script:
     - echo "Deploying CentOS 8"
-    - echo $packer_datastoreISO
     - cd centos-8
     - ../packer build -force centos-8.json
 
