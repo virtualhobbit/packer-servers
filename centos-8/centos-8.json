@@ -42,7 +42,7 @@
           "disk_thin_provisioned": true
         }
       ],
-      "iso_paths":                 "[{{user `datastoreISO`}}] CentOS-8.2.2004-x86_64-dvd1.iso",
+      "iso_paths":                 "[{{user `datastoreISO`}}] CentOS-8.3.2011-x86_64-dvd1.iso",
       "remove_cdrom":              true,
 
       "network_adapters": [
