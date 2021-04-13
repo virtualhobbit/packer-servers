@@ -32,7 +32,8 @@ retrieve_vault_password:
   script:
     - xmlFile='windows-2019/setup/Autounattend.xml'
     - echo "Retrieving Administrator password from Vault"
-    - "pass=$(curl -s -H 'X-Vault-Token: $VAULT_TOKEN' -X GET $VAULT_ADDR/v1/credentials/users/misc/administrator | jq '.data.Password' | sed 's/^.//;s/.$//')"
+    - 'pass=$(curl -s -H "X-Vault-Token: $VAULT_TOKEN" -X GET $VAULT_ADDR/v1/credentials/users/misc/administrator)'
+    - echo $pass
     - echo "Updating Autounattend.xml file with Administrator password"
     - sed "s/{{password}}/$pass/g" $xmlFile > $xmlFile
 
