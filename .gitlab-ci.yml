@@ -33,7 +33,8 @@ retrieve_vault_password:
     - xmlFile='windows-2019/setup/Autounattend.xml'
     - echo "Retrieving Administrator password from Vault"
     - export pass=$(curl -s -H "X-Vault-Token:$VAULT_TOKEN" -X GET $VAULT_ADDR/v1/credentials/users/misc/administrator | jq ".data.Password" | sed "s/^.//;s/.$//")
-    - echo ${pass}
+    - echo "Updating Autounattend.xml file with Administrator password"
+    - sed "s/{{password}}/$pass/g" $xmlFile > $xmlFile
 
 build_centos-8:
   stage: build
