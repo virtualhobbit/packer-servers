@@ -44,7 +44,7 @@
       ],
       "iso_paths": [
         "[{{user `datastoreISO`}}] Windows_InsiderPreview_Server_vNext_en-us_20298.iso",
-        "[{{user `datastoreISO`}}] VMware-tools-windows-11.2.1-17243207.iso"
+        "[{{user `datastoreISO`}}] VMware-tools-windows-11.2.6-17901274.iso"
       ],
       "floppy_files": [
         "{{template_dir}}/setup/"
