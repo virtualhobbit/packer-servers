@@ -62,7 +62,8 @@
 
       "communicator":              "winrm",
       "winrm_username":            "{{user `winrmUser`}}",
-      "winrm_password":            "{{user `winrmPass`}}"
+      "winrm_password":            "{{user `winrmPass`}}",
+      "shutdown_timeout":          "1h0m"
     },
     {
       "name":                      "Southport",
@@ -113,7 +114,8 @@
 
       "communicator":              "winrm",
       "winrm_username":            "{{user `winrmUser`}}",
-      "winrm_password":            "{{user `winrmPass`}}"
+      "winrm_password":            "{{user `winrmPass`}}",
+      "shutdown_timeout":          "1h0m"
     }
   ],
   "provisioners": [
