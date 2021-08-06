@@ -3,10 +3,8 @@ stages:
   - vault
   - build
 
-image: alpine
-
 before_script:
-  - apk add --no-cache git wget curl jq
+  - yum install -y git wget curl jq
   - git config --global http.sslVerify false
 
 get_packer:
@@ -30,9 +28,10 @@ retrieve_vault_password:
     paths:
     - windows-2019/setup/Autounattend.xml
   script:
-    - xmlFile='windows-2019/setup/Autounattend.xml'
     - echo "Retrieving Administrator password from Vault"
-    - 'curl -s -H "X-Vault-Token:$VAULT_TOKEN" -X GET $VAULT_ADDR/v1/credentials/users/misc/administrator | jq ".data.Password" | sed "s/^.//;s/.$//"'
+    - adminPW=$(curl -s -H "X-Vault-Token:$VAULT_TOKEN" -X GET $VAULT_ADDR/v1/credentials/users/misc/administrator | jq ".data.Password" | sed "s/^.//;s/.$//")
+    - echo $adminPW
+    - sed -i 's/{{password}}/$adminPW/g'
 
 build_centos-8:
   stage: build
