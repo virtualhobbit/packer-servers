@@ -32,7 +32,6 @@ retrieve_vault_password:
   script:
     - echo "Retrieving Administrator password from Vault"
     - adminPW=$(curl -k -s -H "X-Vault-Token:$VAULT_TOKEN" -X GET $VAULT_ADDR/v1/credentials/users/misc/administrator | jq '.data.Password' | sed 's/^.//;s/.$//')
-    - echo $adminPW
     - echo "Updating Autounattend.xml file with Administrator password"
     - sed -i "s/{{password}}/$adminPW/g" $xmlFile
 
