@@ -89,7 +89,7 @@
             
             <UserAccounts>
                  <AdministratorPassword>
-                     <Value>Zw44rdv15!</Value>
+                     <Value>{{password}}</Value>
                      <PlainText>true</PlainText>
                  </AdministratorPassword>
             </UserAccounts>
@@ -98,7 +98,7 @@
                 <Enabled>true</Enabled>
                 <Username>Administrator</Username>
                 <Password>
-                    <Value>Zw44rdv15!</Value>
+                    <Value>{{password}}</Value>
                     <PlainText>true</PlainText>
                 </Password>
                 <LogonCount>1</LogonCount>
