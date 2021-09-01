@@ -52,3 +52,12 @@ build_windows-2019:
     - echo "Deploying Windows Server 2019"
     - cd windows-2019
     - ../packer build -force windows-2019.json
+
+build_windows-2022:
+  stage: build
+  tags:
+    - bash
+  script:
+    - echo "Deploying Windows Server 2022"
+    - cd windows-2022
+    - ../packer build -force windows-2022.json
