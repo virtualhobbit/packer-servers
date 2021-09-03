@@ -28,7 +28,8 @@ retrieve_vault_password:
     - bash
   artifacts:
     paths:
-    - $xmlFiles
+    - windows-2019/setup/Autounattend.xml
+    - windows-2022/setup/Autounattend.xml
   script:
     - xmlFiles='windows-2019/setup/Autounattend.xml windows-2022/setup/Autounattend.xml'
     - echo "Retrieving Administrator password from Vault"
