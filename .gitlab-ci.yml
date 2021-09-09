@@ -28,10 +28,11 @@ retrieve_vault_password:
     - bash
   artifacts:
     paths:
+    - windows-2016/setup/Autounattend.xml
     - windows-2019/setup/Autounattend.xml
     - windows-2022/setup/Autounattend.xml
   script:
-    - xmlFiles='windows-2019/setup/Autounattend.xml windows-2022/setup/Autounattend.xml'
+    - xmlFiles='windows-2016/setup/Autounattend.xml windows-2019/setup/Autounattend.xml windows-2022/setup/Autounattend.xml'
     - echo "Retrieving Administrator password from Vault"
     - adminPW=$(curl -k -s -H "X-Vault-Token:$VAULT_TOKEN" -X GET $VAULT_ADDR/v1/credentials/users/misc/administrator | jq '.data.Password' | sed 's/^.//;s/.$//')
     - echo "Updating Autounattend.xml file with Administrator password"
@@ -45,6 +46,15 @@ build_centos-8:
     - echo "Deploying CentOS 8"
     - cd centos-8
     - ../packer build -force centos-8.json
+
+build_windows-2016:
+  stage: build
+  tags:
+    - bash
+  script:
+    - echo "Deploying Windows Server 2016"
+    - cd windows-2016
+    - ../packer build -force windows-2016.json
 
 build_windows-2019:
   stage: build
