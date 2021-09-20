@@ -117,6 +117,13 @@
   "provisioners": [
     {
       "type":                      "shell",
+      "inline": [
+        "yum install -y perl",
+        "yum update -y"
+      ]
+    },
+    {
+      "type":                      "shell",
       "execute_command":           "echo '{{user `sshPass`}}' | sudo -S -E bash '{{.Path}}'",
       "scripts": [
         "setup/ansible.sh",
