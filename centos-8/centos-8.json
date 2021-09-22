@@ -118,16 +118,17 @@
     {
       "type":                      "shell",
       "inline": [
-        "yum install -y perl",
-        "yum update -y"
+        "dnf install -y perl",
+        "dnf update -y",
+        "dnf clean all"
       ]
     },
     {
       "type":                      "shell",
       "execute_command":           "echo '{{user `sshPass`}}' | sudo -S -E bash '{{.Path}}'",
       "scripts": [
-        "setup/ansible.sh",
-        "setup/update.sh"
+        "setup/certs.sh",
+        "setup/ansible.sh"
       ]
     }
   ]
