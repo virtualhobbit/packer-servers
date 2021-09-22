@@ -5,7 +5,7 @@
   - [Additional Info]
   - [Author]
   ## Description
-  Repo contains server builds for CentOOS 8, Windows Server 2019 and Windows Server 2022.
+  Repo contains server builds for CentOS 8, Windows Server 2019 and Windows Server 2022.
   ## Additional Info
   Each build has it's own folder
   ## Author
