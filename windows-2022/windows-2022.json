@@ -44,7 +44,7 @@
       ],
       "iso_paths": [
         "[{{user `datastoreISO`}}] en-us_windows_server_2022_x64_dvd_620d7eac.iso",
-        "[{{user `datastoreISO`}}] VMware-tools-windows-11.3.0-18090558.iso"
+        "[{{user `datastoreISO`}}] VMware-tools-windows-11.3.5-18557794.iso"
       ],
       "floppy_files": [
         "{{template_dir}}/setup/"
@@ -96,7 +96,7 @@
       ],
       "iso_paths": [
         "[{{user `datastoreISO`}}] en-us_windows_server_2022_x64_dvd_620d7eac.iso",
-        "[{{user `datastoreISO`}}] VMware-tools-windows-11.3.0-18090558.iso"
+        "[{{user `datastoreISO`}}] VMware-tools-windows-11.3.5-18557794.iso"
       ],
       "floppy_files": [
         "{{template_dir}}/setup/"

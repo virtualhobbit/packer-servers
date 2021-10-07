@@ -63,3 +63,14 @@ build_windows-2022:
     - echo "Deploying Windows Server 2022"
     - cd windows-2022
     - ../packer build -force windows-2022.json
+
+build_windows-2022-core:
+  stage: build
+  tags:
+    - bash
+  script:
+    - echo "Deploying Windows Server 2022 Server Core"
+    - cd windows-2022
+    - sed -i s/Windows Server 2022/Windows Server 2022 Core/g windows-2022.json
+    - sed -i s/SERVERSTANDARD/SERVERSTANDARDCORE/g setup/Autounattend.xml
+    - ../packer build -force windows-2022.json
