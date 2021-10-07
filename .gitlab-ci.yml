@@ -55,6 +55,17 @@ build_windows-2019:
     - cd windows-2019
     - ../packer build -force windows-2019.json
 
+build_windows-2019-core:
+  stage: build
+  tags:
+    - bash
+  script:
+    - echo "Deploying Windows Server 2019 Server Core"
+    - cd windows-2019
+    - sed -i "s/Windows Server 2019/Windows Server 2019 Core/g" windows-2019.json
+    - sed -i "s/SERVERSTANDARD/SERVERSTANDARDCORE/g" setup/Autounattend.xml
+    - ../packer build -force windows-2019.json
+
 build_windows-2022:
   stage: build
   tags:
