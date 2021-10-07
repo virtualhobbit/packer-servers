@@ -71,6 +71,6 @@ build_windows-2022-core:
   script:
     - echo "Deploying Windows Server 2022 Server Core"
     - cd windows-2022
-    - sed -i s/Windows Server 2022/Windows Server 2022 Core/g windows-2022.json
-    - sed -i s/SERVERSTANDARD/SERVERSTANDARDCORE/g setup/Autounattend.xml
+    - sed -i "s/Windows Server 2022/Windows Server 2022 Core/g" windows-2022.json
+    - sed -i "s/SERVERSTANDARD/SERVERSTANDARDCORE/g" setup/Autounattend.xml
     - ../packer build -force windows-2022.json
