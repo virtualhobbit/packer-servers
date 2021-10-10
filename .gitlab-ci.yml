@@ -1,7 +1,8 @@
 stages:
   - get
   - vault
-  - build
+  - build-full
+  - build-core
 
 image: alpine
 
@@ -38,7 +39,7 @@ retrieve_vault_password:
     - for i in ${xmlFiles}; do sed -i "s/{{password}}/$adminPW/g" $i; done
 
 build_centos-8:
-  stage: build
+  stage: build-full
   tags:
     - bash
   script:
@@ -47,7 +48,7 @@ build_centos-8:
     - ../packer build -force centos-8.json
 
 build_windows-2019:
-  stage: build
+  stage: build-full
   tags:
     - bash
   script:
@@ -55,8 +56,17 @@ build_windows-2019:
     - cd windows-2019
     - ../packer build -force windows-2019.json
 
+build_windows-2022:
+  stage: build-full
+  tags:
+    - bash
+  script:
+    - echo "Deploying Windows Server 2022"
+    - cd windows-2022
+    - ../packer build -force windows-2022.json
+
 build_windows-2019-core:
-  stage: build
+  stage: build-core
   tags:
     - bash
   script:
@@ -66,17 +76,8 @@ build_windows-2019-core:
     - sed -i "s/SERVERSTANDARD/SERVERSTANDARDCORE/g" setup/Autounattend.xml
     - ../packer build -force windows-2019.json
 
-build_windows-2022:
-  stage: build
-  tags:
-    - bash
-  script:
-    - echo "Deploying Windows Server 2022"
-    - cd windows-2022
-    - ../packer build -force windows-2022.json
-
 build_windows-2022-core:
-  stage: build
+  stage: build-core
   tags:
     - bash
   script:
