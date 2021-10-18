@@ -22,7 +22,7 @@
       "password":                  "{{user `vcenterPass`}}",
       "insecure_connection":       true,
 
-      "vm_name":                   "Windows Server 2019",
+      "vm_name":                   "Windows Server 2019 Standard",
       "vm_version":                15,  
       "guest_os_type":             "windows9Server64Guest",
       "boot_order":                "disk,cdrom",
@@ -44,7 +44,7 @@
       ],
       "iso_paths": [
         "[{{user `datastoreISO`}}] en_windows_server_2019_updated_feb_2021_x64_dvd_277a6bfe.iso",
-        "[{{user `datastoreISO`}}] VMware-tools-windows-11.3.5-18557794.iso"
+        "[{{user `datastoreISO`}}] VMware-tools-windows-11.3.0-18090558.iso"
       ],
       "floppy_files": [
         "{{template_dir}}/setup/"
@@ -74,7 +74,7 @@
       "password":                  "{{user `vcenterPass`}}",
       "insecure_connection":       true,
 
-      "vm_name":                   "Windows Server 2019",
+      "vm_name":                   "Windows Server 2019 Standard",
       "vm_version":                15,  
       "guest_os_type":             "windows9Server64Guest",
       "boot_order":                "disk,cdrom",
@@ -96,7 +96,7 @@
       ],
       "iso_paths": [
         "[{{user `datastoreISO`}}] en_windows_server_2019_updated_feb_2021_x64_dvd_277a6bfe.iso",
-        "[{{user `datastoreISO`}}] VMware-tools-windows-11.3.5-18557794.iso"
+        "[{{user `datastoreISO`}}] VMware-tools-windows-11.3.0-18090558.iso"
       ],
       "floppy_files": [
         "{{template_dir}}/setup/"
@@ -130,7 +130,8 @@
       "scripts": [
         "{{template_dir}}/setup/certs.ps1",
         "{{template_dir}}/setup/bginfo.ps1",
-        "{{template_dir}}/setup/ansible.ps1"
+        "{{template_dir}}/setup/ansible.ps1",
+        "{{template_dir}}/setup/cloudbase-init.ps1"
       ]
     },
     {

@@ -22,7 +22,7 @@
       "password":                  "{{user `vcenterPass`}}",
       "insecure_connection":       true,
 
-      "vm_name":                   "Windows Server 2022",
+      "vm_name":                   "Windows Server 2022 Standard",
       "vm_version":                15,  
       "guest_os_type":             "windows9Server64Guest",
       "boot_order":                "disk,cdrom",
@@ -74,7 +74,7 @@
       "password":                  "{{user `vcenterPass`}}",
       "insecure_connection":       true,
 
-      "vm_name":                   "Windows Server 2022",
+      "vm_name":                   "Windows Server 2022 Standard",
       "vm_version":                15,  
       "guest_os_type":             "windows9Server64Guest",
       "boot_order":                "disk,cdrom",

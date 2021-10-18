@@ -72,7 +72,7 @@ build_windows-2019-core:
   script:
     - echo "Deploying Windows Server 2019 Server Core"
     - cd windows-2019
-    - sed -i "s/Windows Server 2019/Windows Server 2019 Core/g" windows-2019.json
+    - sed -i "s/Windows Server 2019 Standard/Windows Server 2019 Core/g" windows-2019.json
     - sed -i "s/SERVERSTANDARD/SERVERSTANDARDCORE/g" setup/Autounattend.xml
     - ../packer build -force windows-2019.json
 
@@ -83,6 +83,6 @@ build_windows-2022-core:
   script:
     - echo "Deploying Windows Server 2022 Server Core"
     - cd windows-2022
-    - sed -i "s/Windows Server 2022/Windows Server 2022 Core/g" windows-2022.json
+    - sed -i "s/Windows Server 2022 Standard/Windows Server 2022 Core/g" windows-2022.json
     - sed -i "s/SERVERSTANDARD/SERVERSTANDARDCORE/g" setup/Autounattend.xml
     - ../packer build -force windows-2022.json
