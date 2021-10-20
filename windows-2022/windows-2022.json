@@ -130,7 +130,8 @@
       "scripts": [
         "{{template_dir}}/setup/certs.ps1",
         "{{template_dir}}/setup/bginfo.ps1",
-        "{{template_dir}}/setup/ansible.ps1"
+        "{{template_dir}}/setup/ansible.ps1",
+        "{{template_dir}}/setup/cloudbase-init.ps1"
       ]
     },
     {
