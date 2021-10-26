@@ -45,7 +45,8 @@ build_centos-8:
   script:
     - echo "Deploying CentOS 8"
     - cd centos-8
-    - ../packer build -force centos-8.json
+    - ../packer init .
+    - ../packer build -force .
 
 build_windows-2019:
   stage: build-full
