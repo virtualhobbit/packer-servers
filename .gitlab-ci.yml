@@ -55,7 +55,8 @@ build_windows-2019:
   script:
     - echo "Deploying Windows Server 2019"
     - cd windows-2019
-    - ../packer build -force windows-2019.json
+    - ../packer init .
+    - ../packer build -force .
 
 build_windows-2022:
   stage: build-full
@@ -64,7 +65,8 @@ build_windows-2022:
   script:
     - echo "Deploying Windows Server 2022"
     - cd windows-2022
-    - ../packer build -force windows-2022.json
+    - ../packer init .
+    - ../packer build -force .
 
 build_windows-2019-core:
   stage: build-core
@@ -75,7 +77,8 @@ build_windows-2019-core:
     - cd windows-2019
     - sed -i "s/Windows Server 2019 Standard/Windows Server 2019 Core/g" windows-2019.json
     - sed -i "s/SERVERSTANDARD/SERVERSTANDARDCORE/g" setup/Autounattend.xml
-    - ../packer build -force windows-2019.json
+    - ../packer init .
+    - ../packer build -force .
 
 build_windows-2022-core:
   stage: build-core
@@ -86,4 +89,5 @@ build_windows-2022-core:
     - cd windows-2022
     - sed -i "s/Windows Server 2022 Standard/Windows Server 2022 Core/g" windows-2022.json
     - sed -i "s/SERVERSTANDARD/SERVERSTANDARDCORE/g" setup/Autounattend.xml
-    - ../packer build -force windows-2022.json
+    - ../packer init .
+    - ../packer build -force .
