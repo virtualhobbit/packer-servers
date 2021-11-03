@@ -117,6 +117,8 @@ build {
     scripts               = ["${path.root}/setup/sshd.ps1"]
   }
 
+  provisioner "windows-restart" {}
+
   provisioner "windows-update" {
     filters               = ["exclude:$_.Title -like '*Preview*'", "include:$true"]
     search_criteria       = "IsInstalled=0"
