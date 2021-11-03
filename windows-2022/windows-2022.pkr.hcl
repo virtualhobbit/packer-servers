@@ -110,6 +110,8 @@ build {
   provisioner "windows-restart" {}
 
   provisioner "powershell" {
+    elevated_user         = "${local.winrmUser}"
+    elevated_password     = "${local.winrmPass}"
     scripts               = ["${path.root}/setup/certs.ps1", "${path.root}/setup/ansible.ps1", "${path.root}/setup/cloudinit.ps1", "${path.root}/setup/sshd.ps1"]
   }
 
