@@ -107,14 +107,10 @@ build {
     inline                = ["powercfg.exe /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c"]
   }
 
-  provisioner "powershell" {
-    scripts               = ["${path.root}/setup/certs.ps1", "${path.root}/setup/ansible.ps1", "${path.root}/setup/cloudinit.ps1"]
-  }
+  provisioner "windows-restart" {}
 
   provisioner "powershell" {
-    elevated_user         = "${local.winrmUser}"
-    elevated_password     = "${local.winrmPass}"
-    scripts               = ["${path.root}/setup/sshd.ps1"]
+    scripts               = ["${path.root}/setup/certs.ps1", "${path.root}/setup/ansible.ps1", "${path.root}/setup/cloudinit.ps1", "${path.root}/setup/sshd.ps1"]
   }
 
   provisioner "windows-restart" {}
