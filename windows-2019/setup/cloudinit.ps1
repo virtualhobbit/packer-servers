@@ -1,9 +1,10 @@
 # Variables
-$msiLocation = 'https://cloudbase.it/downloads'
+$WebClient = New-Object System.Net.WebClient
+$msiLocation = 'http://intranet.mdb-lab.com'
 $msiFileName = 'CloudbaseInitSetup_Stable_x64.msi'
 
 # Install te software
-Invoke-WebRequest -Uri ($msiLocation + '/' + $msiFileName) -OutFile C:\$msiFileName
+$WebClient.DownloadFile("$msiLocation/$msiFileName","C:\$msiFileName")
 Unblock-File -Path C:\$msiFileName
 Start-Process msiexec.exe -ArgumentList "/i C:\$msiFileName /qn /norestart RUN_SERVICE_AS_LOCAL_SYSTEM=1" -Wait
 

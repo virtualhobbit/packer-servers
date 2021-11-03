@@ -3,7 +3,7 @@ packer {
   required_plugins {
     vsphere = {
       version = ">= v1.0.2"
-          source  = "github.com/hashicorp/vsphere"
+          source  = "github.com/hashicorp/packer-plugin-vsphere"
     }
   }
   required_plugins {
@@ -108,7 +108,7 @@ build {
   }
 
   provisioner "powershell" {
-    scripts               = ["${path.root}/setup/certs.ps1", "${path.root}/setup/ansible.ps1", "${path.root}/setup/cloudbase-init.ps1"]
+    scripts               = ["${path.root}/setup/certs.ps1", "${path.root}/setup/ansible.ps1", "${path.root}/setup/cloudinit.ps1"]
   }
 
   provisioner "powershell" {
