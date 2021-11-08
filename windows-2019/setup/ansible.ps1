@@ -13,11 +13,6 @@ $credential = New-Object System.Management.Automation.PsCredential($user,$secure
 # Create the home folder
 $process = Start-Process cmd /c -Credential $credential -ErrorAction SilentlyContinue -LoadUserProfile
 
-# Set random password on account
-$newPass = ([System.Web.Security.Membership]::GeneratePassword($length, $nonAlphaChars))
-$newSecureString = ConvertTo-SecureString $newPass -AsPlainText -Force
-Set-LocalUser -Name $user -Password $newSecureString
-
 # Configure SSH public key
 New-Item -Path "C:\Users\$user" -Name ".ssh" -ItemType Directory
 $content = @"
