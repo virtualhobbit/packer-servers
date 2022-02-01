@@ -98,6 +98,15 @@ build {
   sources                 = ["source.vsphere-iso.Utrecht", "source.vsphere-iso.Southport"]
 
   provisioner "shell" {
+    execute_command       = "echo '${local.sshPass}' | sudo -S -E bash '{{ .Path }}'"
+    scripts               = ["setup/stream.sh"]
+  }
+
+  provisioner "shell" {
+    inline                = ["reboot"]
+  }
+
+  provisioner "shell" {
     inline                = ["dnf install -y perl", "dnf update -y", "dnf clean all"]
   }
 
