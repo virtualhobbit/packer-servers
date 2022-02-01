@@ -29,7 +29,7 @@ source "vsphere-iso" "Utrecht" {
     disk_size             = 16384
     disk_thin_provisioned = true
   }
-  iso_paths               = ["[${var.datastoreISO}] CentOS-8.4.2105-x86_64-dvd1.iso"]
+  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-x86_64-20220128-dvd1.iso"]
   remove_cdrom            = true
 
   network_adapters {
@@ -72,7 +72,7 @@ source "vsphere-iso" "Southport" {
     disk_size             = 16384
     disk_thin_provisioned = true
   }
-  iso_paths               = ["[${var.datastoreISO}] CentOS-8.4.2105-x86_64-dvd1.iso"]
+  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-x86_64-20220128-dvd1.iso"]
   remove_cdrom            = true
 
   network_adapters {
@@ -96,15 +96,6 @@ source "vsphere-iso" "Southport" {
 
 build {
   sources                 = ["source.vsphere-iso.Utrecht", "source.vsphere-iso.Southport"]
-
-  provisioner "shell" {
-    execute_command       = "echo '${local.sshPass}' | sudo -S -E bash '{{ .Path }}'"
-    scripts               = ["setup/stream.sh"]
-  }
-
-  provisioner "shell" {
-    inline                = ["reboot"]
-  }
 
   provisioner "shell" {
     inline                = ["dnf install -y perl", "dnf update -y", "dnf clean all"]
