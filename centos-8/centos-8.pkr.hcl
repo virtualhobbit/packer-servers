@@ -1,8 +1,8 @@
 packer {
-  required_version = ">= 1.8.0"
+  required_version = ">= 1.8.5"
   required_plugins {
     vsphere = {
-      version = ">= v1.0.3"
+      version = ">= v1.1.1"
           source  = "github.com/hashicorp/vsphere"
     }
   }
@@ -29,7 +29,7 @@ source "vsphere-iso" "Utrecht" {
     disk_size             = 16384
     disk_thin_provisioned = true
   }
-  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-x86_64-20220128-dvd1.iso"]
+  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-x86_64-20221125-dvd1.iso"]
   remove_cdrom            = true
 
   network_adapters {
@@ -72,7 +72,7 @@ source "vsphere-iso" "Southport" {
     disk_size             = 16384
     disk_thin_provisioned = true
   }
-  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-x86_64-20220128-dvd1.iso"]
+  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-x86_64-20221125-dvd1.iso"]
   remove_cdrom            = true
 
   network_adapters {

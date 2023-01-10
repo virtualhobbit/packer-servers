@@ -1,14 +1,14 @@
 packer {
-  required_version = ">= 1.8.0"
+  required_version = ">= 1.8.5"
   required_plugins {
     vsphere = {
-      version = ">= v1.0.3"
+      version = ">= v1.1.1"
           source  = "github.com/hashicorp/vsphere"
     }
   }
   required_plugins {
     windows-update = {
-      version = ">= 0.14.0"
+      version = ">= 0.14.1"
           source  = "github.com/rgl/windows-update"
     }
   }
@@ -36,7 +36,7 @@ source "vsphere-iso" "Utrecht" {
     disk_thin_provisioned = true
   }
   floppy_files            = ["${path.root}/setup/"]
-  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.0.0-19345655.iso"]
+  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.1.5-20735119.iso"]
   remove_cdrom            = true
 
   network_adapters {
@@ -79,7 +79,7 @@ source "vsphere-iso" "Southport" {
     disk_thin_provisioned = true
   }
   floppy_files            = ["${path.root}/setup/"]
-  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.0.0-19345655.iso"]
+  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.1.5-20735119.iso"]
   remove_cdrom            = true
 
   network_adapters {
