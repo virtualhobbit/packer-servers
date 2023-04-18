@@ -1,7 +1,7 @@
 # Variables
 $WebClient = New-Object System.Net.WebClient
 $msiLocation = 'http://intranet.mdb-lab.com'
-$msiFileName = 'CloudbaseInitSetup_Stable_x64.msi'
+$msiFileName = 'CloudbaseInitSetup_1_1_4_x64.msi'
 
 # Install te software
 $WebClient.DownloadFile("$msiLocation/$msiFileName","C:\$msiFileName")
