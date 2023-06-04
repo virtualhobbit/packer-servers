@@ -29,7 +29,6 @@ retrieve_vault_password:
     - bash
   artifacts:
     paths:
-    - windows-2019/setup/Autounattend.xml
     - windows-2022/setup/Autounattend.xml
   script:
     - xmlFiles='windows-2019/setup/Autounattend.xml windows-2022/setup/Autounattend.xml'
@@ -48,13 +47,13 @@ build_centos-8:
     - ../packer init .
     - ../packer build -force .
 
-build_windows-2019:
+build_rhel-8:
   stage: build-full
   tags:
     - bash
   script:
-    - echo "Deploying Windows Server 2019"
-    - cd windows-2019
+    - echo "Deploying RHEL 8"
+    - cd rhel-8
     - ../packer init .
     - ../packer build -force .
 
@@ -65,18 +64,6 @@ build_windows-2022:
   script:
     - echo "Deploying Windows Server 2022"
     - cd windows-2022
-    - ../packer init .
-    - ../packer build -force .
-
-build_windows-2019-core:
-  stage: build-core
-  tags:
-    - bash
-  script:
-    - echo "Deploying Windows Server 2019 Server Core"
-    - cd windows-2019
-    - sed -i "s/Windows Server 2019 Standard/Windows Server 2019 Core/g" windows-2019.pkr.hcl
-    - sed -i "s/SERVERSTANDARD/SERVERSTANDARDCORE/g" setup/Autounattend.xml
     - ../packer init .
     - ../packer build -force .
 
