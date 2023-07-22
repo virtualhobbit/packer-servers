@@ -1,12 +1,10 @@
 packer {
-  required_version = ">= 1.8.6"
+  required_version = ">= 1.9.1"
   required_plugins {
     vsphere = {
-      version = ">= v1.1.2"
+      version = ">= 1.2.0"
           source  = "github.com/hashicorp/vsphere"
     }
-  }
-  required_plugins {
     windows-update = {
       version = ">= 0.14.1"
           source  = "github.com/rgl/windows-update"
@@ -36,7 +34,7 @@ source "vsphere-iso" "Utrecht" {
     disk_thin_provisioned = true
   }
   floppy_files            = ["${path.root}/setup/"]
-  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.2.0-21223074.iso"]
+  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.2.5-21855600.iso"]
   remove_cdrom            = true
 
   network_adapters {
@@ -64,7 +62,7 @@ source "vsphere-iso" "Southport" {
   insecure_connection     = true
 
   vm_name                 = "Windows Server 2022 Standard"
-  vm_version              = 15
+  vm_version              = 20
   guest_os_type           = "windows9Server64Guest"
 
   CPUs                    = 1
@@ -79,7 +77,7 @@ source "vsphere-iso" "Southport" {
     disk_thin_provisioned = true
   }
   floppy_files            = ["${path.root}/setup/"]
-  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.2.0-21223074.iso"]
+  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.2.5-21855600.iso"]
   remove_cdrom            = true
 
   network_adapters {
