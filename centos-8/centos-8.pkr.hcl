@@ -1,8 +1,8 @@
 packer {
-  required_version = ">= 1.8.6"
+  required_version = ">= 1.9.1"
   required_plugins {
     vsphere = {
-      version = ">= v1.1.2"
+      version = ">= 1.2.0"
           source  = "github.com/hashicorp/vsphere"
     }
   }
@@ -15,7 +15,7 @@ source "vsphere-iso" "Utrecht" {
   insecure_connection     = true  
 
   vm_name                 = "CentOS 8"
-  vm_version              = 15  
+  vm_version              = 20
   guest_os_type           = "centos8_64Guest"
 
   CPUs                    = 1
