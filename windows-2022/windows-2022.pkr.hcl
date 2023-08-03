@@ -1,12 +1,12 @@
 packer {
-  required_version = ">= 1.9.1"
+  required_version = ">= 1.9.2"
   required_plugins {
     vsphere = {
-      version = ">= 1.2.0"
+      version = ">= 1.2.1"
           source  = "github.com/hashicorp/vsphere"
     }
     windows-update = {
-      version = ">= 0.14.1"
+      version = ">= 0.14.3"
           source  = "github.com/rgl/windows-update"
     }
   }
