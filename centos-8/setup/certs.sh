@@ -1,7 +1,7 @@
 #!/bin/sh
 
 export WEBSERVER="intranet.mdb-lab.com"
-export URL="https://"$WEBSERVER
+export URL="http://"$WEBSERVER
 export CERTROOT="rootCA.crt"
 export CERTISSUING="issuingCA.crt"
 

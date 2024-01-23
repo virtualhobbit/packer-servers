@@ -1,17 +1,17 @@
 packer {
-  required_version = ">= 1.9.2"
+  required_version = ">= 1.10.0"
   required_plugins {
     vsphere = {
-      version = ">= 1.2.1"
+      version = ">= 1.2.4"
           source  = "github.com/hashicorp/vsphere"
     }
   }
 }
   
 source "vsphere-iso" "Utrecht" {
-  vcenter_server          = "${var.vcenterNL}"  
-  username                = "${var.vcenterUser}"  
-  password                = "${var.vcenterPass}"  
+  vcenter_server          = var.vcenterNL
+  username                = var.vcenterUser
+  password                = var.vcenterPass
   insecure_connection     = true  
 
   vm_name                 = "CentOS 8"
@@ -20,16 +20,16 @@ source "vsphere-iso" "Utrecht" {
 
   CPUs                    = 1
   RAM                     = 2048
-  cluster                 = "${var.cluster}"
+  cluster                 = var.cluster
 
-  datastore               = "${var.datastore}"
-  folder                  = "${var.folder}"
+  datastore               = var.datastore
+  folder                  = var.folder
   disk_controller_type    = ["pvscsi"]
   storage {
     disk_size             = 16384
     disk_thin_provisioned = true
   }
-  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-20230330.0-x86_64-dvd1.iso"]
+  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-x86_64-latest-dvd1.iso"]
   remove_cdrom            = true
 
   network_adapters {
@@ -44,17 +44,17 @@ source "vsphere-iso" "Utrecht" {
   shutdown_command        = "echo '${local.sshPass}' | sudo -S -E shutdown -P now"
 
   communicator            = "ssh"
-  ssh_username            = "${local.sshUser}"
-  ssh_password            = "${local.sshPass}"
+  ssh_username            = local.sshUser
+  ssh_password            = local.sshPass
 
   convert_to_template     = true
   create_snapshot         = false
 }
 
 source "vsphere-iso" "Southport" {
-  vcenter_server          = "${var.vcenterUK}"
-  username                = "${var.vcenterUser}"
-  password                = "${var.vcenterPass}"
+  vcenter_server          = var.vcenterUK
+  username                = var.vcenterUser
+  password                = var.vcenterPass
   insecure_connection     = true
 
   vm_name                 = "CentOS 8"
@@ -63,20 +63,20 @@ source "vsphere-iso" "Southport" {
 
   CPUs                    = 1
   RAM                     = 2048
-  cluster                 = "${var.cluster}"
+  cluster                 = var.cluster
 
-  datastore               = "${var.datastore}"
-  folder                  = "${var.folder}"
+  datastore               = var.datastore
+  folder                  = var.folder
   disk_controller_type    = ["pvscsi"]
   storage {
     disk_size             = 16384
     disk_thin_provisioned = true
   }
-  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-20230330.0-x86_64-dvd1.iso"]
+  iso_paths               = ["[${var.datastoreISO}] CentOS-Stream-8-x86_64-latest-dvd1.iso"]
   remove_cdrom            = true
 
   network_adapters {
-    network               = "${var.network}"
+    network               = var.network
     network_card          = "vmxnet3"
   }
 
@@ -87,8 +87,8 @@ source "vsphere-iso" "Southport" {
   shutdown_command        = "echo '${local.sshPass}' | sudo -S -E shutdown -P now"
 
   communicator            = "ssh"
-  ssh_username            = "${local.sshUser}"
-  ssh_password            = "${local.sshPass}"
+  ssh_username            = local.sshUser
+  ssh_password            = local.sshPass
 
   convert_to_template     = true
   create_snapshot         = false
