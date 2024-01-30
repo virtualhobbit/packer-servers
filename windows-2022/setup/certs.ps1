@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $webserver = "intranet.mdb-lab.com"
 $url = "http://" + $webserver
 $certRoot = "rootCA.crt"
-$certIssuing = "issuingCA.crt"
+$certIssuing = "issuingCA2.crt"
 
 # Verify connectivity
 Test-Connection $webserver -Count 1

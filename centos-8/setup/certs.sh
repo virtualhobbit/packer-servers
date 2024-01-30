@@ -3,7 +3,7 @@
 export WEBSERVER="intranet.mdb-lab.com"
 export URL="http://"$WEBSERVER
 export CERTROOT="rootCA.crt"
-export CERTISSUING="issuingCA.crt"
+export CERTISSUING="issuingCA2.crt"
 
 cd /etc/pki/ca-trust/source/anchors
 
