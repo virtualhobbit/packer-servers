@@ -34,7 +34,7 @@ source "vsphere-iso" "Utrecht" {
     disk_thin_provisioned = true
   }
   floppy_files            = ["${path.root}/setup/"]
-  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.4.0-23259341.iso"]
+  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_updated_march_2024_x64_dvd_f6700d18.iso", "[${var.datastoreISO}] VMware-tools-windows-12.4.0-23259341.iso"]
   remove_cdrom            = true
 
   network_adapters {
@@ -77,7 +77,7 @@ source "vsphere-iso" "Southport" {
     disk_thin_provisioned = true
   }
   floppy_files            = ["${path.root}/setup/"]
-  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_x64_dvd_620d7eac.iso", "[${var.datastoreISO}] VMware-tools-windows-12.4.0-23259341.iso"]
+  iso_paths               = ["[${var.datastoreISO}] en-us_windows_server_2022_updated_march_2024_x64_dvd_f6700d18.iso", "[${var.datastoreISO}] VMware-tools-windows-12.4.0-23259341.iso"]
   remove_cdrom            = true
 
   network_adapters {
